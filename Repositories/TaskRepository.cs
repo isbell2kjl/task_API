@@ -33,12 +33,12 @@ public class TaskRepository : ITaskRepository
         return _context.Tasks!.ToList();
     }
 
-    public Models.Task GetTaskById(int taskId)
+    public Models.Task? GetTaskById(int taskId)
     {
         return _context.Tasks!.SingleOrDefault(t => t.TaskId == taskId);
     }
 
-    public Models.Task UpdateTask(Models.Task newTask)
+    public Models.Task? UpdateTask(Models.Task newTask)
     {
         var originalTask = _context.Tasks!.Find(newTask.TaskId);
         if (originalTask != null)
